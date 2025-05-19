@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('merks', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('nama_merk');
+            $table->string('nama_merk')->unique();
             $table->timestamps();
         });
     }

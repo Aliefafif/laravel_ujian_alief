@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mobil extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','nama_mobil','harga','stok','foto','id_jenis','id_merk'];
+    protected $fillable = ['id','nama_mobil','deskripsi','harga','stok','foto','id_jenis','id_merk'];
    public $timestamp = true;
 
    public function jenis()

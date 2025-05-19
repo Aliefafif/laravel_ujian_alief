@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('jenis', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('nama_jenis');
+            $table->string('nama_jenis')->unique();
             $table->timestamps();
         });
     }

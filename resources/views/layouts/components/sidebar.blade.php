@@ -11,7 +11,7 @@
     </li>
     
 
-    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
     <a href="{{route('jenis.index') }}" 
     class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
     <i class="fab fa-wpforms float-left mx-2"></i>Jenis
@@ -20,7 +20,7 @@
      </li>
 
      
-    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
     <a href="{{route('merk.index') }}" 
     class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
     <i class="fab fa-wpforms float-left mx-2"></i>Merk
@@ -28,7 +28,7 @@
         </a>
      </li>
 
-    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
     <a href="{{route('mobil.index') }}" 
     class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
     <i class="fab fa-wpforms float-left mx-2"></i>Mobil

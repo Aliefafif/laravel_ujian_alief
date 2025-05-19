@@ -16,7 +16,7 @@ class MerkController extends Controller
     public function index()
     {
         $merk = Merk::all();
-            return view('merk.index', compact('merk'));
+            return view('admin-view/merk.index', compact('merk'));
     }
 
     /**
@@ -26,7 +26,7 @@ class MerkController extends Controller
      */
     public function create()
     {
-        return view('merk.create');
+        return view('admin-view/merk.create');
     }
 
     /**
@@ -37,6 +37,12 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
+        //validasi input
+        $request->validate([
+            'nama_merk' => 'required|unique:merks,nama_merk',
+        ], [
+            'nama_merk.unique' => 'Nama merk sudah ada, silakan pilih nama lain.'
+        ]);
     
         $merk              = new Merk;
         $merk->nama_merk       = $request->nama_merk;
@@ -44,7 +50,7 @@ class MerkController extends Controller
 
         session()->flash('success', 'Data Berhasil Ditambahkan');
 
-        return redirect()->route('merk.index');
+        return redirect()->route('admin-view/merk.index');
     }
 
     /**
@@ -56,7 +62,7 @@ class MerkController extends Controller
     public function show($id)
     {
         $merk = Merk::findOrFail($id);
-        return view('merk.show', compact('merk'));
+        return view('admin-view/merk.show', compact('merk'));
     }
 
     /**
@@ -68,7 +74,7 @@ class MerkController extends Controller
     public function edit($id)
     {
         $merk = merk::findOrFail($id);
-        return view('merk.edit', compact('merk'));
+        return view('admin-view/merk.edit', compact('merk'));
     }
 
     /**
@@ -80,13 +86,19 @@ class MerkController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //validasi input
+        $request->validate([
+            'nama_merk' => 'required|unique:merks,nama_merk,' . $id,
+        ], [
+            'nama_merk.unique' => 'Nama merk sudah ada, silakan pilih nama lain.'
+        ]);
         $merk              = Merk::findorFail($id);
         $merk->nama_merk  = $request->nama_merk;
         $merk->save();
 
         session()->flash('success', 'Data Berhasil Diubah');
 
-        return redirect()->route('merk.index');
+        return redirect()->route('admin-view/merk.index');
     }
 
     /**
@@ -100,6 +112,6 @@ class MerkController extends Controller
         $merk = Merk::findOrFail($id);
         $merk->delete();
 
-        return redirect()->route('merk.index')->with('success', 'Data Berhasil Dihapus.');
+        return redirect()->route('admin-view/merk.index')->with('success', 'Data Berhasil Dihapus.');
     }
 }

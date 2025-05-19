@@ -17,7 +17,7 @@ class JenisController extends Controller
     
         {
             $jenis = Jenis::all();
-            return view('jenis.index', compact('jenis'));
+            return view('admin-view/jenis.index', compact('jenis'));
         }    
     
 
@@ -39,14 +39,22 @@ class JenisController extends Controller
      */
     public function store(Request $request)
     {
-        $jenis              = new Jenis;
-        $jenis->nama_jenis       = $request->nama_jenis;
+        // Validasi input
+        $request->validate([
+            'nama_jenis' => 'required|unique:jenis,nama_jenis',
+        ], [
+            'nama_jenis.unique' => 'Nama jenis sudah ada, silakan pilih nama lain.'
+        ]);
+    
+        $jenis = new Jenis;
+        $jenis->nama_jenis = $request->nama_jenis;
         $jenis->save();
-
+    
         session()->flash('success', 'Data Berhasil Ditambahkan');
-
-        return redirect()->route('jenis.index');
+    
+        return redirect()->route('admin-view/jenis.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -57,7 +65,7 @@ class JenisController extends Controller
     public function show($id)
     {
         $jenis = Jenis::findOrFail($id);
-        return view('jenis.show', compact('jenis'));
+        return view('admin-view/jenis.show', compact('jenis'));
     }
 
     /**
@@ -69,7 +77,7 @@ class JenisController extends Controller
     public function edit($id)
     {
         $jenis = Jenis::findOrFail($id);
-        return view('jenis.edit', compact('jenis'));
+        return view('admin-view/jenis.edit', compact('jenis'));
     }
 
     /**
@@ -81,14 +89,22 @@ class JenisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jenis              = Jenis::findorFail($id);
-        $jenis->nama_jenis  = $request->nama_jenis;
+        $request->validate([
+            'nama_jenis' => 'required|unique:jenis,nama_jenis,' . $id,
+        ], [
+            'nama_jenis.unique' => 'Nama jenis sudah ada, silakan pilih nama lain.'
+        ]);
+    
+        $jenis = Jenis::findOrFail($id);
+        $jenis->nama_jenis = $request->nama_jenis;
         $jenis->save();
-
+    
         session()->flash('success', 'Data Berhasil Diubah');
-
-        return redirect()->route('jenis.index');
+    
+        return redirect()->route('admin-view/jenis.index');
     }
+    
+
 
     /**
      * Remove the specified resource from storage.
@@ -101,6 +117,6 @@ class JenisController extends Controller
         $jenis = Jenis::findOrFail($id);
         $jenis->delete();
 
-        return redirect()->route('jenis.index')->with('success', 'Data Berhasil Dihapus.');
+        return redirect()->route('admin-view/jenis.index')->with('success', 'Data Berhasil Dihapus.');
     }
 }

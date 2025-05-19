@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\MobilController;
+use Illuminate\Support\Facades\Auth;
 
+Auth::routes(['register' => false]);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +18,14 @@ use App\Http\Controllers\MobilController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->middleware('auth')->group(function () {
 Route::resource('jenis', JenisController::class);
 Route::resource('merk', MerkController::class);
 Route::resource('mobil', MobilController::class);
+});

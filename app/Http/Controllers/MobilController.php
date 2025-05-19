@@ -18,7 +18,7 @@ class MobilController extends Controller
     public function index()
     {
         $mobil = Mobil::all();
-        return view('mobil.index', compact('mobil'));
+        return view('admin-view/mobil.index', compact('mobil'));
     }
 
     /**
@@ -30,7 +30,7 @@ class MobilController extends Controller
     {
         $jenis = Jenis::all();
         $merk  = Merk::all();
-        return view('mobil.create', compact('jenis', 'merk'));
+        return view('admin-view/mobil.create', compact('jenis', 'merk'));
     }
 
     /**
@@ -43,6 +43,7 @@ class MobilController extends Controller
     {
         $mobil = new Mobil; // Corrected: Create a new Mobil instance
         $mobil->nama_mobil = $request->nama_mobil;
+        $mobil->deskripsi = $request->deskripsi;
         $mobil->harga = $request->harga;
         $mobil->stok = $request->stok;
         $mobil->id_jenis = $request->id_jenis;
@@ -70,7 +71,7 @@ class MobilController extends Controller
     public function show($id)
     {
         $mobil = Mobil::findOrFail($id);
-        return view('mobil.show', compact('mobil'));
+        return view('admin-view/mobil.show', compact('mobil'));
     }
 
     /**
@@ -84,7 +85,7 @@ class MobilController extends Controller
         $mobil = Mobil::findOrFail($id); // Corrected spelling and used findOrFail
         $jenis = Jenis::all();
         $merk  = Merk::all();
-        return view('mobil.edit', compact('mobil', 'jenis', 'merk'));
+        return view('admin-view/mobil.edit', compact('mobil', 'jenis', 'merk'));
     }
 
     /**
@@ -95,30 +96,33 @@ class MobilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+{
+    $mobil = Mobil::findOrFail($id);
+    $mobil->nama_mobil = $request->nama_mobil;
+    $mobil->deskripsi = $request->deskripsi;
+    $mobil->harga = $request->harga;
+    $mobil->stok = $request->stok;
+    $mobil->id_jenis = $request->id_jenis;
+    $mobil->id_merk = $request->id_merk;
 
-        $mobil = Mobil::findOrFail($id); // Correct: Find the existing Mobil instance
-        $mobil->nama_mobil = $request->nama_mobil;
-        $mobil->harga = $request->harga;
-        $mobil->stok = $request->stok;
-        $mobil->id_jenis = $request->id_jenis;
-        $mobil->id_merk = $request->id_merk;
-
-        if ($request->hasFile('foto')) {
-            // Delete the old image if it exists
-            if ($mobil->foto && file_exists(public_path('images/' . $mobil->foto))) {
-                unlink(public_path('images/' . $mobil->foto));
-            }
-            $file = $request->file('foto');
-            $filename = time() . '.' . $file->getClientOriginalExtension(); // Use timestamp
-            $file->move(public_path('images'), $filename); //store in folder
-            $mobil->foto = $filename;
+    if ($request->hasFile('foto')) {
+        // Hapus foto lama jika ada
+        if ($mobil->foto && file_exists(public_path('storage/images/' . $mobil->foto))) {
+            unlink(public_path('storage/images/' . $mobil->foto));
         }
 
-        $mobil->save(); // Corrected: Save the $mobil instance
-        session()->flash('success', 'Data Berhasil Diubah');
-        return redirect()->route('mobil.index');
+        // Simpan foto baru
+        $img = $request->file('foto');
+        $name = rand(1000, 9999) . '_' . $img->getClientOriginalName();
+        $img->move(public_path('storage/images'), $name);
+        $mobil->foto = $name;
     }
+
+    $mobil->save();
+    session()->flash('success', 'Data Berhasil Diubah');
+    return redirect()->route('mobil.index');
+}
+
 
     /**
      * Remove the specified resource from storage.
