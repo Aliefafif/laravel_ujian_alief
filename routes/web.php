@@ -19,6 +19,11 @@ Auth::routes(['register' => false]);
 */
 
 route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
+route::get('/car', [App\Http\Controllers\FrontController::class, 'show']);
+route::get('/about', [App\Http\Controllers\FrontController::class, 'about']);
+route::get('detail/{id}',[App\Http\Controllers\FrontController::class, 'detail']);
+
+
 
 Auth::routes();
 

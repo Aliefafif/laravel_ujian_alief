@@ -39,7 +39,7 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
-	          <li class="nav-item active"><a href="car.html" class="nav-link">Cars</a></li>
+	          <li class="nav-item active"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
@@ -48,67 +48,96 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('user/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('user/images/detail.png') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="{{url ('/')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Choose Your Car</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{{url ('car')}}">back <i class="ion-ios-arrow-forward"></i></a></span> <span>Car details <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Car Details</h1>
           </div>
         </div>
       </div>
     </section>
 		
 
-	<!-- mobil -->
-		<!-- Mobil Section -->
-<section class="ftco-section bg-light">
-  <div class="container">
-    <div class="row">
-      @foreach ($mobil as $data)
-        <div class="col-md-4 mb-4">
-          <div class="car-wrap rounded ftco-animate">
-            <div class="img rounded d-flex align-items-end"style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
-            </div>
-            <div class="text">
-              <h2 class="mb-0">{{ $data->nama_mobil }}</h2>
-              <div class="d-flex mb-3">
-                <span class="cat">
-                  {{ $data->jenis->nama_jenis }} / {{ $data->merk->nama_merk }}
-                </span>
-                <p class="price ml-auto">{{ $data->harga }}</p>
-              </div>
-              <p class="d-flex mb-0 d-block">
-              <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
-              </p>
-            </div>
-          </div>
+		<section class="ftco-section ftco-car-details">
+      <div class="container">
+      <div class="row justify-content-center">
+    <div class="col-md-11">
+      <div class="car-details">
+        <div class="img rounded d-flex align-items-end"style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 600px; ">
         </div>
-      @endforeach
+        <div class="text text-center">
+          <span class="subheading">{{ $data->jenis->nama_jenis }} / {{ $data->merk->nama_merk }}</span>
+          <h2>{{ $data->nama_mobil }}</h2>
+        </div>
+      </div>
     </div>
-  </div>
+</div>
+      	<div class="row">
+      		<div class="col-md-12 pills">
+						<div class="bd-example bd-example-tabs">
+							<div class="d-flex justify-content-center">
+							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
+							    <li class="nav-item">
+							      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Features</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Description</a>
+							    </li>
+							   
+							  </ul>
+							</div>
 
-    			<!-- end mobil -->
-    		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
+						  <div class="tab-content" id="pills-tabContent">
+						    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+						    	<div class="row">
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Airconditions</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Child Seat</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>GPS</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Luggage</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Music</li>
+						    			</ul>
+						    		</div>
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Seat Belt</li>
+						    				<li class="remove"><span class="ion-ios-close"></span>Sleeping Bed</li>
+						    				<li class="remove"><span class="ion-ios-close"></span>Water</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Bluetooth</li>
+						    				<li class="remove"><span class="ion-ios-close"></span>Onboard computer</li>
+						    			</ul>
+						    		</div>
+						    		<div class="col-md-4">
+						    			<ul class="features">
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Audio input</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Long Term Trips</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Car Kit</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Remote central locking</li>
+						    				<li class="check"><span class="ion-ios-checkmark"></span>Climate control</li>
+						    			</ul>
+						    		</div>
+						    	</div>
+						    </div>
+
+						    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+                <p>{{$data->deskripsi}}</p>
+              </div>
+
+						   
+						  </div>
+						</div>
+		      </div>
+				</div>
+      </div>
     </section>
+
+    
+
     
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">

@@ -17,4 +17,31 @@ class FrontController extends Controller
         return view('welcome', compact('jenis','merk','mobil'));
         
     }
+    public function show()
+    {
+        $jenis = Jenis::all();
+        $merk = Merk::all();
+        $mobil = Mobil::all();
+        return view('car', compact('jenis','merk','mobil'));
+        
+    }
+
+    public function about()
+    {
+        $jenis = Jenis::all();
+        $merk = Merk::all();
+        $mobil = Mobil::all();
+        return view('about', compact('jenis','merk','mobil'));
+        
+    }
+    public function detail($id)
+    {
+        $data = Jenis::findOrFail($id);
+        $data = Merk::findOrFail($id);
+        $data = Mobil::findOrFail($id);
+        return view('detail', compact('data'));
+        
+    }
+    
+
 }

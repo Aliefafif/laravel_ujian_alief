@@ -37,9 +37,9 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="#car" class="nav-link">Cars</a></li>
+	          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
@@ -48,7 +48,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('user/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('user/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="home">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -87,8 +87,7 @@
     				@foreach ($mobil as $data)	
                     <div class="item">
     						<div class="car-wrap rounded ftco-animate">
-                                <img src="{{asset('storage/images/' . $data->foto)}}" class="img rounded d-flex align-items-end" >
-
+            <div class="img rounded d-flex align-items-end" style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0">{{$data->nama_mobil}}</h2>
@@ -96,10 +95,9 @@
 			    						<span class="cat">{{$data->jenis->nama_jenis}}<span>/{{$data->merk->nama_merk}}</span></span>
 			    						<p class="price ml-auto">{{$data->harga}}</p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+              <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
 		    					</div>
 		    				</div>
-    					</div>
     				</div>
                   @endforeach
     			</div>
@@ -117,10 +115,11 @@
 	          	<span class="subheading">About us</span>
 	            <h2 class="mb-4">Welcome to Carbook</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
-	          </div>
+              <p>Carbook hadir sebagai sumber informasi lengkap dan terpercaya seputar dunia otomotif. Kami bersemangat untuk menyajikan berbagai artikel menarik, ulasan mendalam, dan berita terkini mengenai mobil dari berbagai merek dan jenis.</p>
+              <p>Di sini, Anda akan menemukan informasi detail mengenai spesifikasi, fitur, performa, hingga tips perawatan mobil. Baik Anda seorang penggemar otomotif, calon pembeli mobil, atau sekadar ingin menambah wawasan, Carbook siap menjadi teman perjalanan informasi Anda.</p>
+              <p>Kami berusaha menyajikan konten yang akurat, relevan, dan mudah dipahami. Tujuan kami adalah memberdayakan Anda dengan pengetahuan yang dibutuhkan untuk membuat keputusan yang tepat dalam dunia permobilan.</p>
+            <p>Jelajahi Carbook dan temukan segala hal tentang mobil yang ingin Anda ketahui!</p>
+            </div>
 					</div>
 				</div>
 			</div>
@@ -141,7 +140,7 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(user/images/person_1.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(user/images/bolot.jpg)">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -152,12 +151,12 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(user/images/person_2.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(user/images/adit.png)">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Interface Designer</span>
+                    <p class="mb-4">dia adalah pengocok handal yang sehari bisa coli sampai 5 kali .</p>
+                    <p class="name">Adit </p>
+                    <span class="position">Pengocok Handal</span>
                   </div>
                 </div>
               </div>

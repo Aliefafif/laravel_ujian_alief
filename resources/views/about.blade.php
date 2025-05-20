@@ -38,8 +38,8 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
-	          <li class="nav-item active"><a href="car.html" class="nav-link">Cars</a></li>
+	          <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
@@ -48,68 +48,38 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('user/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('user/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="{{url ('/')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Choose Your Car</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{{ ('/')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">About Us</h1>
           </div>
         </div>
       </div>
     </section>
-		
 
-	<!-- mobil -->
-		<!-- Mobil Section -->
-<section class="ftco-section bg-light">
-  <div class="container">
-    <div class="row">
-      @foreach ($mobil as $data)
-        <div class="col-md-4 mb-4">
-          <div class="car-wrap rounded ftco-animate">
-            <div class="img rounded d-flex align-items-end"style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
-            </div>
-            <div class="text">
-              <h2 class="mb-0">{{ $data->nama_mobil }}</h2>
-              <div class="d-flex mb-3">
-                <span class="cat">
-                  {{ $data->jenis->nama_jenis }} / {{ $data->merk->nama_merk }}
-                </span>
-                <p class="price ml-auto">{{ $data->harga }}</p>
-              </div>
-              <p class="d-flex mb-0 d-block">
-              <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
+    <section class="ftco-section ftco-about">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(user/images/about.jpg);">
+					</div>
+					<div class="col-md-6 wrap-about ftco-animate">
+	          <div class="heading-section heading-section-white pl-md-5">
+	          	<span class="subheading">About us</span>
+	            <h2 class="mb-4">Welcome to Carbook</h2>
+
+             <p>Carbook hadir sebagai sumber informasi lengkap dan terpercaya seputar dunia otomotif. Kami bersemangat untuk menyajikan berbagai artikel menarik, ulasan mendalam, dan berita terkini mengenai mobil dari berbagai merek dan jenis.</p>
+              <p>Di sini, Anda akan menemukan informasi detail mengenai spesifikasi, fitur, performa, hingga tips perawatan mobil. Baik Anda seorang penggemar otomotif, calon pembeli mobil, atau sekadar ingin menambah wawasan, Carbook siap menjadi teman perjalanan informasi Anda.</p>
+              <p>Kami berusaha menyajikan konten yang akurat, relevan, dan mudah dipahami. Tujuan kami adalah memberdayakan Anda dengan pengetahuan yang dibutuhkan untuk membuat keputusan yang tepat dalam dunia permobilan.</p>
+            <p>Jelajahi Carbook dan temukan segala hal tentang mobil yang ingin Anda ketahui!</p>	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
-    			<!-- end mobil -->
-    		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
-    
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
