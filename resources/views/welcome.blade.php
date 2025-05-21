@@ -30,7 +30,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <p class="navbar-brand">Car<span>Book</span></p>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -40,8 +40,6 @@
 	          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -54,16 +52,9 @@
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">Fast &amp; Easy Way To Rent A Car</h1>
+	            <h1 class="mb-4">Fast &amp; Easy Way to Buy a Car</h1>
 	            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
-	            <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
-	            	<div class="icon d-flex align-items-center justify-content-center">
-	            		<span class="ion-ios-play"></span>
-	            	</div>
-	            	<div class="heading-title ml-5">
-		            	<span>Easy steps for renting a car</span>
-	            	</div>
-	            </a>
+	          
             </div>
           </div>
         </div>
@@ -81,6 +72,7 @@
             <h2 class="mb-2">Feeatured Vehicles</h2>
           </div>
         </div>
+        
     		<div class="row">
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
@@ -89,15 +81,19 @@
     						<div class="car-wrap rounded ftco-animate">
             <div class="img rounded d-flex align-items-end" style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
 		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0">{{$data->nama_mobil}}</h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">{{$data->jenis->nama_jenis}}<span>/{{$data->merk->nama_merk}}</span></span>
-			    						<p class="price ml-auto">{{$data->harga}}</p>
-		    						</div>
+                  <div class="text">
+                    <h2 class="mb-0">Rp {{ number_format($data->harga, 0, ',', '.') }}</h2> 
+                    
+                    <div class="d-flex mb-1"> 
+                        <span class="cat">{{$data->jenis->nama_jenis}}<span>/{{$data->merk->nama_merk}}</span></span>
+                    </div>
+                    
+                    <div>
+                        <h5 class="mt-1">{{$data->nama_mobil}}</h5> 
+                    </div>
+                </div>
               <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
 		    					</div>
-		    				</div>
     				</div>
                   @endforeach
     			</div>
@@ -115,10 +111,10 @@
 	          	<span class="subheading">About us</span>
 	            <h2 class="mb-4">Welcome to Carbook</h2>
 
-              <p>Carbook hadir sebagai sumber informasi lengkap dan terpercaya seputar dunia otomotif. Kami bersemangat untuk menyajikan berbagai artikel menarik, ulasan mendalam, dan berita terkini mengenai mobil dari berbagai merek dan jenis.</p>
-              <p>Di sini, Anda akan menemukan informasi detail mengenai spesifikasi, fitur, performa, hingga tips perawatan mobil. Baik Anda seorang penggemar otomotif, calon pembeli mobil, atau sekadar ingin menambah wawasan, Carbook siap menjadi teman perjalanan informasi Anda.</p>
-              <p>Kami berusaha menyajikan konten yang akurat, relevan, dan mudah dipahami. Tujuan kami adalah memberdayakan Anda dengan pengetahuan yang dibutuhkan untuk membuat keputusan yang tepat dalam dunia permobilan.</p>
-            <p>Jelajahi Carbook dan temukan segala hal tentang mobil yang ingin Anda ketahui!</p>
+              <p>Carbook is here as a complete and trusted source of information about the automotive world. We are passionate about presenting various interesting articles, in-depth reviews, and the latest news about cars from various brands and types.</p>
+              <p>Here, you will find detailed information about specifications, features, performance, and car maintenance tips. Whether you are an automotive enthusiast, a prospective car buyer, or just want to increase your knowledge, Carbook is ready to be your information travel companion.</p>
+              <p>We strive to present content that is accurate, relevant, and easy to understand. Our goal is to empower you with the knowledge needed to make the right decisions in the automotive world.</p>
+              <p>Explore Carbook and find everything about cars you want to know!</p>
             </div>
 					</div>
 				</div>
@@ -131,7 +127,6 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimonial</span>
             <h2 class="mb-3">Happy Clients</h2>
           </div>
         </div>
@@ -154,9 +149,9 @@
                   <div class="user-img mb-2" style="background-image: url(user/images/adit.png)">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">dia adalah pengocok handal yang sehari bisa coli sampai 5 kali .</p>
+                    <p class="mb-4"></p>
                     <p class="name">Adit </p>
-                    <span class="position">Pengocok Handal</span>
+                    <span class="position"></span>
                   </div>
                 </div>
               </div>
@@ -199,63 +194,7 @@
       </div>
     </section>
 
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Blog</span>
-            <h2>Recent Blog</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('user/images/image_1.jpg');">
-              </a>
-              <div class="text pt-4">
-              	<div class="meta mb-3">
-                  <div><a href="#">Oct. 29, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('user/images/image_2.jpg');">
-              </a>
-              <div class="text pt-4">
-              	<div class="meta mb-3">
-                  <div><a href="#">Oct. 29, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('user/images/image_3.jpg');">
-              </a>
-              <div class="text pt-4">
-              	<div class="meta mb-3">
-                  <div><a href="#">Oct. 29, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <p><a href="#" class="btn btn-primary">Read more</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>	
+   	
 
     	
 

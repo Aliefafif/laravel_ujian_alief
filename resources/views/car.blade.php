@@ -30,7 +30,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <p class="navbar-brand">Car<span>Book</span></p>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -40,8 +40,6 @@
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item active"><a href="car.html" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -71,18 +69,20 @@
           <div class="car-wrap rounded ftco-animate">
             <div class="img rounded d-flex align-items-end"style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
             </div>
-            <div class="text">
-              <h2 class="mb-0">{{ $data->nama_mobil }}</h2>
-              <div class="d-flex mb-3">
-                <span class="cat">
-                  {{ $data->jenis->nama_jenis }} / {{ $data->merk->nama_merk }}
-                </span>
-                <p class="price ml-auto">{{ $data->harga }}</p>
-              </div>
-              <p class="d-flex mb-0 d-block">
+              <div class="text">
+                    <h2 class="mb-0">Rp {{ number_format($data->harga, 0, ',', '.') }}</h2> 
+                    
+                    <div class="d-flex mb-1"> 
+                        <span class="cat">{{$data->jenis->nama_jenis}}<span>/{{$data->merk->nama_merk}}</span></span>
+                    </div>
+                    
+                    <div>
+                        <h5 class="mt-1">{{$data->nama_mobil}}</h5> 
+                    </div>
+                    <p class="d-flex mb-0 d-block">
               <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
               </p>
-            </div>
+                </div>
           </div>
         </div>
       @endforeach
@@ -92,21 +92,6 @@
 
     			<!-- end mobil -->
     		</div>
-    		<div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
     	</div>
     </section>
     

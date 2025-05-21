@@ -63,8 +63,7 @@
                                                 <td scope="row">{{ $no++ }}</td>
                                                 <td scope="row">{{ $data->nama_mobil}}</td>
                                                 <td scope="row">{{ Str::limit( $data->deskripsi, 50)}}</td>
-                                                <td scope="row">{{ $data->harga}}</td>
-                                                <td scope="row">{{ $data->stok}}</td>
+                                                <td scope="row">Rp {{ number_format($data->harga, 0, ',', '.') }}</td>                                                <td scope="row">{{ $data->stok}}</td>
                                                 <td scope="row">{{ $data->jenis->nama_jenis}}</td>
                                                 <td scope="row">{{ $data->merk->nama_merk}}</td>
                                               

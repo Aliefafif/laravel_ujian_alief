@@ -20,8 +20,6 @@
 
     <link rel="stylesheet" href="{{asset('user/css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/jquery.timepicker.css')}}">
-
-    
     <link rel="stylesheet" href="{{asset('user/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('user/css/style.css')}}">
@@ -30,7 +28,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <p class="navbar-brand">Car<span>Book</span></p>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -40,8 +38,6 @@
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -70,10 +66,10 @@
 	          	<span class="subheading">About us</span>
 	            <h2 class="mb-4">Welcome to Carbook</h2>
 
-             <p>Carbook hadir sebagai sumber informasi lengkap dan terpercaya seputar dunia otomotif. Kami bersemangat untuk menyajikan berbagai artikel menarik, ulasan mendalam, dan berita terkini mengenai mobil dari berbagai merek dan jenis.</p>
-              <p>Di sini, Anda akan menemukan informasi detail mengenai spesifikasi, fitur, performa, hingga tips perawatan mobil. Baik Anda seorang penggemar otomotif, calon pembeli mobil, atau sekadar ingin menambah wawasan, Carbook siap menjadi teman perjalanan informasi Anda.</p>
-              <p>Kami berusaha menyajikan konten yang akurat, relevan, dan mudah dipahami. Tujuan kami adalah memberdayakan Anda dengan pengetahuan yang dibutuhkan untuk membuat keputusan yang tepat dalam dunia permobilan.</p>
-            <p>Jelajahi Carbook dan temukan segala hal tentang mobil yang ingin Anda ketahui!</p>	          </div>
+              <p>Carbook is here as a complete and trusted source of information about the automotive world. We are passionate about presenting various interesting articles, in-depth reviews, and the latest news about cars from various brands and types.</p>
+              <p>Here, you will find detailed information about specifications, features, performance, and car maintenance tips. Whether you are an automotive enthusiast, a prospective car buyer, or just want to increase your knowledge, Carbook is ready to be your information travel companion.</p>
+              <p>We strive to present content that is accurate, relevant, and easy to understand. Our goal is to empower you with the knowledge needed to make the right decisions in the automotive world.</p>
+              <p>Explore Carbook and find everything about cars you want to know!</p>
 					</div>
 				</div>
 			</div>

@@ -30,7 +30,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+	      <p class="navbar-brand">Car<span>Book</span></p>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -40,8 +40,6 @@
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{url ('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item active"><a href="{{url ('car')}}" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -75,64 +73,26 @@
       </div>
     </div>
 </div>
-      	<div class="row">
-      		<div class="col-md-12 pills">
-						<div class="bd-example bd-example-tabs">
-							<div class="d-flex justify-content-center">
-							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-							    <li class="nav-item">
-							      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Features</a>
-							    </li>
-							    <li class="nav-item">
-							      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Description</a>
-							    </li>
-							   
-							  </ul>
-							</div>
-
-						  <div class="tab-content" id="pills-tabContent">
-						    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-						    	<div class="row">
-						    		<div class="col-md-4">
-						    			<ul class="features">
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Airconditions</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Child Seat</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>GPS</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Luggage</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Music</li>
-						    			</ul>
-						    		</div>
-						    		<div class="col-md-4">
-						    			<ul class="features">
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Seat Belt</li>
-						    				<li class="remove"><span class="ion-ios-close"></span>Sleeping Bed</li>
-						    				<li class="remove"><span class="ion-ios-close"></span>Water</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Bluetooth</li>
-						    				<li class="remove"><span class="ion-ios-close"></span>Onboard computer</li>
-						    			</ul>
-						    		</div>
-						    		<div class="col-md-4">
-						    			<ul class="features">
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Audio input</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Long Term Trips</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Car Kit</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Remote central locking</li>
-						    				<li class="check"><span class="ion-ios-checkmark"></span>Climate control</li>
-						    			</ul>
-						    		</div>
-						    	</div>
-						    </div>
-
-						    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-                <p>{{$data->deskripsi}}</p>
-              </div>
-
-						   
-						  </div>
-						</div>
-		      </div>
-				</div>
+      <div class="row">
+    <div class="col-md-12 pills">
+        <div class="bd-example bd-example-tabs">
+            <div class="d-flex justify-content-center">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a>Description</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
+                    <p>{{$data->deskripsi}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
       </div>
     </section>
 

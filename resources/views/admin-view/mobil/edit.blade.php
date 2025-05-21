@@ -45,31 +45,31 @@
 
                         <div class=" px-6">
                         <label for="nama_mobil" class="block text-sm font-medium text-gray-700 mb-2">Nama Mobil</label>
-                        <input type="text" name="nama_mobil" name="jumlah" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"
+                        <input type="text" name="nama_mobil" name="jumlah" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" value="{{$mobil->nama_mobil}}"
                         required>
                         </div>
 
                         <div class=" px-6">
                         <label for="deskripsi" class="block text-sm font-medium text-gray-700 mb-2">DESKRIPSI</label>
-                        <input type="text" name="deskripsi" name="jumlah" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"
+                        <input type="text" name="deskripsi" name="jumlah" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500 " value="{{$mobil->deskripsi}}"
                         required>
                         </div>
 
                         <div class="px-6">
                         <label for="harga" class="block text-sm font-medium text-gray-700 mb-2">Harga</label>
-                            <input type="number"  name="harga" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"
+                            <input type="number"  name="harga" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" value="{{$mobil->harga}}"
                             required>
                         </div>
 
                         <div class="px-6">
                         <label for="stok" class="block text-sm font-medium text-gray-700 mb-2">Stok</label>
-                            <input type="number"  name="stok" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"
+                            <input type="number"  name="stok" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" value="{{$mobil->stok}}"
                             required>
                         </div>
 
                         <div class="px-6">
-                             <label for="id_jenis" class="block text-sm font-medium text-gray-700 mb-2">ID Jenis</label>
-                            <select id="id_jenis" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" name="id_jenis">
+                             <label for="id_jenis" class="block text-sm font-medium text-gray-700 mb-2">Jenis</label>
+                            <select id="id_jenis" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" name="id_jenis" value="{{$mobil->jenis}}">
                                         @foreach ($jenis as $data)
                                     <option value="{{ $data->id }}">{{ $data->nama_jenis }}</option>
                                 @endforeach
@@ -77,8 +77,9 @@
                         </div>
 
                             <div class="px-6">
-                                <label for="id_merk" class="block text-sm font-medium text-gray-700 mb-2">ID Merk</label>
-                                <select id="id_merk" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" name="id_merk">
+                                <label for="id_merk" class="block text-sm font-medium text-gray-700 mb-2">Merk</label>
+                                <select id="id_merk" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500" name="id_merk" value="{{$mobil->merk}}">
+                                            <option value="{{ $mobil->merk->id }}">{{ $mobil->merk->nama_merk }}</option>   
                                     @foreach ($merk as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama_merk }}</option>
                                     @endforeach
