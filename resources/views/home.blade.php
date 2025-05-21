@@ -20,12 +20,12 @@
     <!--Screen-->
     <div class="min-h-screen flex flex-col">
         <!--Header Section Starts Here-->
-        @include('layouts.components.header')
+        @include('layouts.components-admin.header')
         <!--/Header-->
 
         <div class="flex flex-1">
             <!--Sidebar-->
-            @include('layouts.components.sidebar')    
+            @include('layouts.components-admin.sidebar')    
             <!--/Sidebar-->
             <!--Main-->
             <main class="bg-white-300 flex-1 p-3 overflow-hidden">

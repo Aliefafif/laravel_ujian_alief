@@ -36,10 +36,10 @@ class FrontController extends Controller
     }
     public function detail($id)
     {
-        $data = Jenis::findOrFail($id);
-        $data = Merk::findOrFail($id);
-        $data = Mobil::findOrFail($id);
-        return view('detail', compact('data'));
+        $jenis = Jenis::findOrFail($id);
+        $merk = Merk::findOrFail($id);
+        $mobil = Mobil::findOrFail($id);
+        return view('detail', compact('jenis','merk','mobil'));
         
     }
     
