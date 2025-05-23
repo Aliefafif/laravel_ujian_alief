@@ -16,8 +16,8 @@ class MobilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $mobil = Mobil::all();
+    {      
+        $mobil = Mobil::orderBy('id','desc')->get();
         return view('admin-view/mobil.index', compact('mobil'));
     }
 

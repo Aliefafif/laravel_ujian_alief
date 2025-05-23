@@ -60,9 +60,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-11">
                     <div class="car-details">
-                        <div class="img rounded d-flex align-items-center justify-content-center" style="height: 500px; overflow: hidden;">
-                             <img src="{{ asset('storage/images/' . $mobil->foto) }}" alt="{{ $mobil->nama_mobil }}" style="width: 100%; max-height: 500px; object-fit: contain; display: block; margin: 0 auto;">
-                        </div>
+                        <div class="img rounded d-flex align-items-center justify-content-center bg-light" style="aspect-ratio: 16/9; overflow: hidden; border-radius: 12px;">
+                            <img src="{{ asset('storage/images/' . $mobil->foto) }}"
+                                alt="{{ $mobil->nama_mobil }}"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                           </div>
+
                         <div class="text text-center">
                             <span class="subheading">{{ $mobil->jenis->nama_jenis }} / {{ $mobil->merk->nama_merk }}</span>
                             <h2>{{ $mobil->nama_mobil }}</h2>
@@ -96,11 +99,13 @@
                 <div class="col-md-4 text-right">
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading-sidebar">Pesan Mobil Ini</h3>
+                         <p class="mt-3">Klik tombol di bawah ini  untuk menghubungi kami melalui WhatsApp.</p>
                         <a href="https://wa.me/6281222048125?text={{ urlencode('Halo, saya tertarik dengan produk ' . $mobil->nama_mobil . ' (' . $mobil->jenis->nama_jenis . ' - ' . $mobil->merk->nama_merk . '). Apakah masih tersedia?') }}"
-                            target="_blank" class="btn btn-lg py-3" style="background-color: #25D366; color: white; font-size: 18px; width: 100%;">
+                            target="_blank" class="btn btn-lg py-3" style="background-color: #25D366; color: white; font-size: 18px; width: 70%;">
                             <i class="icon-whatsapp"></i> Pesan via WhatsApp
                         </a>
-                        <p class="mt-3">Klik tombol di atas untuk menghubungi kami melalui WhatsApp.</p>
+                     <a href="{{ url('car') }}" class="btn btn-secondary py-2 ml-1 ">kembali</a>
+
                     </div>
                 </div>
             </div>

@@ -19,9 +19,9 @@ class FrontController extends Controller
     }
     public function show()
     {
-        $jenis = Jenis::all();
-        $merk = Merk::all();
-        $mobil = Mobil::all();
+        $jenis = Jenis::orderBy('id','desc')->get();
+        $merk = Merk::orderBy('id','desc')->get();
+        $mobil = Mobil::orderBy('id','desc')->get();
         return view('car', compact('jenis','merk','mobil'));
         
     }
@@ -35,13 +35,11 @@ class FrontController extends Controller
         
     }
     public function detail($id)
-    {
-        $jenis = Jenis::findOrFail($id);
-        $merk = Merk::findOrFail($id);
-        $mobil = Mobil::findOrFail($id);
-        return view('detail', compact('jenis','merk','mobil'));
-        
-    }
+{
+    $mobil = Mobil::with(['jenis', 'merk'])->findOrFail($id);
+    return view('detail', compact('mobil'));
+}
+
     
 
 }

@@ -28,7 +28,7 @@ class JenisController extends Controller
      */
     public function create()
     {
-        return view('jenis.create');
+        return view('admin-view/jenis.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class JenisController extends Controller
     
         session()->flash('success', 'Data Berhasil Ditambahkan');
     
-        return redirect()->route('admin-view/jenis.index');
+        return redirect()->route('jenis.index');
     }
 
 
@@ -101,7 +101,7 @@ class JenisController extends Controller
     
         session()->flash('success', 'Data Berhasil Diubah');
     
-        return redirect()->route('admin-view/jenis.index');
+        return redirect()->route('jenis.index');
     }
     
 
@@ -117,6 +117,6 @@ class JenisController extends Controller
         $jenis = Jenis::findOrFail($id);
         $jenis->delete();
 
-        return redirect()->route('admin-view/jenis.index')->with('success', 'Data Berhasil Dihapus.');
+        return redirect()->route('jenis.index')->with('success', 'Data Berhasil Dihapus.');
     }
 }

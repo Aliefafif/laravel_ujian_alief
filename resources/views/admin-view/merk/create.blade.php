@@ -19,11 +19,11 @@
     <div class="mx-auto bg-gray-100">
         <div class="min-h-screen flex flex-col">
             <!-- Header -->
-            @include('layouts.components.header')
+            @include('layouts.components-admin.header')
 
             <div class="flex flex-1">
                 <!-- Sidebar -->
-                @include('layouts.components.sidebar')
+                @include('layouts.components-admin.sidebar')
 
                 <!-- Main Content -->
 <main class="bg-gray-100 flex-1 p-6 overflow-auto">

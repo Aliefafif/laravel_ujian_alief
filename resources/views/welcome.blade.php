@@ -46,7 +46,11 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('user/images/bg_1.jpg');" data-stellar-background-ratio="0.5"  id="home">
+    <div class="hero-wrap ftco-degree-bg position-relative overflow-hidden" id="home">
+    <video autoplay muted loop playsinline class="w-100 h-100 object-cover position-absolute top-0 start-0" style="z-index: -1;">
+        <source src="user/videos/han.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">

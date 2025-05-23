@@ -35,6 +35,7 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
+        
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="{{url ('/')}}" class="nav-link">Home</a></li>
@@ -46,7 +47,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('user/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('user/images/hans.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -62,6 +63,7 @@
 	<!-- mobil -->
 		<!-- Mobil Section -->
 <section class="ftco-section bg-light">
+  
   <div class="container">
     <div class="row">
       @foreach ($mobil as $data)
@@ -70,15 +72,16 @@
             <div class="img rounded d-flex align-items-end"style="background-image: url('{{ asset('storage/images/' . $data->foto) }}'); height: 200px; background-size: cover; background-position: center;">
             </div>
               <div class="text">
-                    <h2 class="mb-0">Rp {{ number_format($data->harga, 0, ',', '.') }}</h2> 
+                 <div>
+                        <h5 class="mt-1">{{$data->nama_mobil}}</h5> 
+                    </div>
                     
                     <div class="d-flex mb-1"> 
                         <span class="cat">{{$data->jenis->nama_jenis}}<span>/{{$data->merk->nama_merk}}</span></span>
                     </div>
                     
-                    <div>
-                        <h5 class="mt-1">{{$data->nama_mobil}}</h5> 
-                    </div>
+                    <h2 class="mb-0">Rp {{ number_format($data->harga, 0, ',', '.') }}</h2> 
+                   
                     <p class="d-flex mb-0 d-block">
               <a href="{{ url('detail/' . $data->id) }}" class="btn btn-secondary py-2 ml-1">Details</a>
               </p>

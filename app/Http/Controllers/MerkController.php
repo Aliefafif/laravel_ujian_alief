@@ -50,7 +50,7 @@ class MerkController extends Controller
 
         session()->flash('success', 'Data Berhasil Ditambahkan');
 
-        return redirect()->route('admin-view/merk.index');
+        return redirect()->route('merk.index');
     }
 
     /**
@@ -98,7 +98,7 @@ class MerkController extends Controller
 
         session()->flash('success', 'Data Berhasil Diubah');
 
-        return redirect()->route('admin-view/merk.index');
+        return redirect()->route('merk.index');
     }
 
     /**
@@ -112,6 +112,6 @@ class MerkController extends Controller
         $merk = Merk::findOrFail($id);
         $merk->delete();
 
-        return redirect()->route('admin-view/merk.index')->with('success', 'Data Berhasil Dihapus.');
+        return redirect()->route('merk.index')->with('success', 'Data Berhasil Dihapus.');
     }
 }
